@@ -15,14 +15,19 @@ public class AttackZone : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(Enemy.Count == 0)
+        {
+            EnemyIn = false;
+        }    
+        else
+        { EnemyIn = true; }
     }
     private void OnTriggerEnter(Collider other)
     {
         if(other.CompareTag("Enemy"))
         {
             Enemy.Add(other.gameObject);
-            EnemyIn = true;
-}
+            
+        }
     }
 }

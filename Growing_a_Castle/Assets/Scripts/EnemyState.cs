@@ -8,9 +8,11 @@ public class EnemyState : MonoBehaviour
     public bool Attack = false;
     public int Example_Hp;
     public AttackZone attackZone;
+    public EnemyMaker enemyMaker;
     // Start is called before the first frame update
     void Start()
     {
+        enemyMaker = GameObject.Find("EnemyMake").GetComponent<EnemyMaker>();
         attackZone = GameObject.Find("AttackZone").GetComponent<AttackZone>();
         Example_Hp = 100;
     }
@@ -25,6 +27,7 @@ public class EnemyState : MonoBehaviour
         if(Example_Hp <= 0)
         {
             attackZone.Enemy.RemoveAt(0);
+            enemyMaker.KillCount++;
             Destroy(gameObject);
         }
     }
