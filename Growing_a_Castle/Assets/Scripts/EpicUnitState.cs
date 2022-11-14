@@ -7,8 +7,8 @@ public class EpicUnitState : MonoBehaviour
     public AttackZone attackZone;
     public EnemyState enemyState;
     public EnemyMaker enemyMaker;
-
-    public int Example_EpicDamage;
+    public TotalState totalState;
+    
     public float Attackcur;
     public float Attackcool;
     // Start is called before the first frame update
@@ -16,6 +16,7 @@ public class EpicUnitState : MonoBehaviour
     {
         enemyMaker = GameObject.Find("EnemyMake").GetComponent<EnemyMaker>();
         attackZone = GameObject.Find("AttackZone").GetComponent<AttackZone>();
+        totalState = GameObject.Find("TotalState").GetComponent<TotalState>();
     }
 
     // Update is called once per frame
@@ -27,11 +28,14 @@ public class EpicUnitState : MonoBehaviour
             {
                 Debug.Log(attackZone.Enemy);
                 transform.LookAt(attackZone.Enemy[0].transform);
+                Vector3 dir = transform.localRotation.eulerAngles;
+                dir.x = 0;
+                transform.localRotation = Quaternion.Euler(dir);
                 enemyState = attackZone.Enemy[0].GetComponent<EnemyState>();
                 Attackcur += Time.deltaTime;
                 if (Attackcur > Attackcool)
                 {
-                    enemyState.Example_Hp -= Example_EpicDamage;
+                    enemyState.Hp -= totalState.EpicUnitDamage;
                     Attackcur = 0;
                 }
             }

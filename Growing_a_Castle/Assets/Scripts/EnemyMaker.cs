@@ -8,6 +8,7 @@ public class EnemyMaker : MonoBehaviour
     public GameObject EnemyPrefab;
     public Text EnemyCountText;
     public Text KillText;
+    public Text Result;
     public Slider KillSlider;
 
     public float curtime;
@@ -16,13 +17,15 @@ public class EnemyMaker : MonoBehaviour
     public int MonsterCount;
     public int CountMax;
     public int KillCount;
+    
 
     public TotalState totalState;
-
+    public AttackZone attackZone;
     // Start is called before the first frame update
     private void Start()
     {
-       
+        totalState = GameObject.Find("TotalState").GetComponent<TotalState>();
+        attackZone = GameObject.Find("AttackZone").GetComponent<AttackZone>();
     }
 
     // Update is called once per frame
@@ -55,12 +58,33 @@ public class EnemyMaker : MonoBehaviour
         if (KillCount == CountMax)
         {
             IsBattle = false;
+            totalState.StageUp();
             curtime = 0;
             KillText.text = $"처치 :{KillCount}마리";
             KillCount = 0;
             MonsterCount = 0;
             BattalPop.SetActive(true);
+            Result.text = "승리";
         }
         
+        if(totalState.CastleHp <= 0)
+        {
+            IsBattle = false;
+            curtime = 0;
+            KillText.text = $"처치 :{KillCount}마리";
+            KillCount = 0;
+            MonsterCount = 0;
+            BattalPop.SetActive(true);
+            Result.text = "패배";
+            for (int i = 0; i < attackZone.Enemy.Count; i++)
+            {
+                Destroy(attackZone.Enemy[i]);
+            }
+            for (int i = 0; i < attackZone.Enemy.Count; i++)
+            {
+                attackZone.Enemy.RemoveAt(0);
+            }
+            
+        }
     }
 }

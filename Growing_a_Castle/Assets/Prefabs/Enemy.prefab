@@ -111,11 +111,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4d74377278c9f942a6fed3b3e496ef3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  state: 0
   Speed: 10
   Attack: 0
-  Example_Hp: 0
+  Hp: 12
+  Damage: 75
+  Attackcur: 0
+  AttackCool: 1
   attackZone: {fileID: 0}
   enemyMaker: {fileID: 0}
+  total: {fileID: 0}
 --- !u!54 &8433157036381736563
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 9076569553139845008}
   - component: {fileID: 7623781049553327029}
   - component: {fileID: 3000193305138541924}
-  - component: {fileID: 1024980837757112564}
   - component: {fileID: -5641493920341017073}
   m_Layer: 0
   m_Name: EpicUnit
@@ -99,24 +98,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1024980837757112564
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3828394271851489408}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1baa91c96e6f02c4b85011d51d01c916, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attackZone: {fileID: 0}
-  enemyState: {fileID: 0}
-  enemyMaker: {fileID: 0}
-  Example_Damage: 50
-  Attackcur: 0
-  Attackcool: 0.2
 --- !u!114 &-5641493920341017073
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -129,3 +110,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51d1c01959b178141b8287e589de7008, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackZone: {fileID: 0}
+  enemyState: {fileID: 0}
+  enemyMaker: {fileID: 0}
+  Example_EpicDamage: 50
+  Attackcur: 0
+  Attackcool: 0.2
