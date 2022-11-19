@@ -7,9 +7,10 @@ public class ButtonMgr : MonoBehaviour
     public EnemyMaker enemyMaker;
     public GameObject ClosePop;
     public GameObject Cancel;
+    public TotalState total;
     public void Start()
     {
-        
+        total = GameObject.Find("TotalState").GetComponent<TotalState>();
     }
     public void BattleBut()
     {
@@ -21,6 +22,7 @@ public class ButtonMgr : MonoBehaviour
     public void ClosePopUp()
     {
         ClosePop.SetActive(false);
+        total.CastleHp = int.Parse(total.data[total.CastleUpgradeLv]["CastleHp"].ToString());
     }
     IEnumerator CancelClose()
     {
